@@ -1,0 +1,80 @@
+.account-container {
+  min-height: 844px;
+  background-color: #ffffff;
+  padding: 48px 24px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 28px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar-image {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  background-color: #6c3ce1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.profile-email {
+  font-size: 14px;
+  color: #5a5a5a;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e8e8e8;
+  border: none;
+  margin: 0 -24px;
+  width: calc(100% + 48px);
+}
+
+.account-bio {
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.7;
+  padding: 20px 0;
+}
