@@ -1,70 +1,186 @@
-# Getting Started with Create React App
+# PopX — React Mobile App UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A pixel-perfect, mobile-first React application built as a qualifier task for an internship/fresher interview. The app replicates a multi-screen mobile UI centered on the webpage, with seamless client-side navigation between all screens.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+popx-app/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── pages/
+│   │   ├── Landing.js           # Welcome screen
+│   │   ├── Landing.css
+│   │   ├── Login.js             # Sign in screen
+│   │   ├── Login.css
+│   │   ├── Register.js          # Create account screen
+│   │   ├── Register.css
+│   │   ├── AccountSettings.js   # User profile screen
+│   │   └── AccountSettings.css
+│   ├── components/              # Reusable components (future use)
+│   ├── App.js                   # Root component with routing
+│   ├── App.css                  # Mobile frame layout
+│   ├── index.js                 # React entry point
+│   └── index.css                # Global reset & base styles
+├── package.json
+└── README.md
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Navigation Flow
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+Landing (/)
+├── "Create Account"            →  /register  →  /account-settings
+└── "Already Registered? Login" →  /login     →  /account-settings
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **4 screens** — Landing, Login, Register, Account Settings
+- **React Router DOM** — client-side navigation, no page reloads
+- **Pixel-perfect UI** — matches the Adobe XD design precisely
+- **Mobile frame** — 390×844px centered on desktop, mimicking a real phone
+- **Fully responsive** — goes edge-to-edge on actual mobile devices
+- **Controlled forms** — all inputs managed with React `useState`
+- **Custom radio buttons** — styled agency toggle (Yes/No)
+- **Clean CSS** — each page has its own scoped stylesheet, no CSS-in-JS
+- **No UI libraries** — pure React + CSS, no Bootstrap or Tailwind
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Technology | Version | Purpose |
+|---|---|---|
+| React | ^19.2.6 | UI library |
+| React DOM | ^19.2.6 | DOM rendering |
+| React Router DOM | ^7.15.1 | Client-side routing |
+| React Scripts (CRA) | 5.0.1 | Build tooling |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prerequisites
 
-## Learn More
+Make sure you have the following installed:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- npm (comes with Node.js)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installation & Running Locally
 
-### Code Splitting
+```bash
+# 1. Clone the repository
+git clone https://github.com/yourusername/popx-app.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# 2. Navigate into the project folder
+cd popx-app
 
-### Analyzing the Bundle Size
+# 3. Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# 4. Start the development server
+npm start
+```
 
-### Making a Progressive Web App
+The app will open at **http://localhost:3000** in your browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Build for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run build
+```
 
-### Deployment
+This creates an optimized `build/` folder ready for deployment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Deploy to Netlify
+
+**Option 1 — Drag & Drop:**
+1. Run `npm run build`
+2. Go to [netlify.com](https://netlify.com) → Sites → Drag & drop the `build/` folder
+
+**Option 2 — GitHub Integration:**
+1. Push your code to GitHub
+2. Go to Netlify → "New site from Git"
+3. Connect your repo
+4. Set build command: `npm run build`
+5. Set publish directory: `build`
+6. Click **Deploy Site**
+
+### Deploy to Vercel
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy
+vercel
+```
+
+Or connect your GitHub repo at [vercel.com](https://vercel.com) for automatic deployments.
+
+---
+
+## Pages Overview
+
+### 1. Landing Page (`/`)
+- Welcome message and app description
+- **"Create Account"** button (purple) → navigates to Register
+- **"Already Registered? Login"** button (light purple) → navigates to Login
+
+### 2. Login Page (`/login`)
+- Email address input with floating label
+- Password input with floating label
+- **"Login"** button → navigates to Account Settings
+
+### 3. Register Page (`/register`)
+- Full Name, Phone Number, Email, Password, Company Name inputs
+- **"Are you an Agency?"** radio toggle (Yes / No)
+- **"Create Account"** button → navigates to Account Settings
+
+### 4. Account Settings Page (`/account-settings`)
+- User avatar with edit badge
+- User name and email display
+- Bio/description text
+- Divider sections
+
+---
+
+## Design Decisions
+
+- **Brand color:** `#6c3ce1` (purple) used for primary buttons, labels, and accents
+- **Background:** `#f7f7f7` light gray for all screen backgrounds
+- **Typography:** System font stack (Segoe UI) for clean, native feel
+- **Form inputs:** Floating label style with purple label text, white card background
+- **Mobile frame:** `border-radius: 40px` with `box-shadow` to simulate a real device on desktop
+
+---
+
+## Code Quality
+
+- Clean, readable, and well-formatted code
+- Each page is a separate functional component
+- CSS is scoped per page (no global style conflicts)
+- Consistent naming conventions throughout
+- Forms use controlled components with `useState`
+
+---
+
+## Author
+Adarsh Shah
